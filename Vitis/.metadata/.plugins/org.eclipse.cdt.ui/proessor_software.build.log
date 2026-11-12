@@ -1,14 +1,5 @@
-23:17:48 **** Build of configuration Debug for project proessor_software ****
+00:18:25 **** Incremental Build of configuration Debug for project proessor_software ****
 make all 
-'Building file: ../src/lw_usb/HID.c'
-'Invoking: MicroBlaze gcc compiler'
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/lw_usb/HID.o" -IC:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vitis/top_level/export/top_level/sw/top_level/standalone_microblaze_0/bspinclude/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v11.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/lw_usb/HID.d" -MT"src/lw_usb/HID.o" -o "src/lw_usb/HID.o" "../src/lw_usb/HID.c"
-../src/lw_usb/HID.c:9:1: warning: braces around scalar initializer
-    9 | HID_DEVICE hid_device = { { 0 } };
-      | ^~~~~~~~~~
-../src/lw_usb/HID.c:9:1: note: (near initialization for 'hid_device.addr')
-'Finished building: ../src/lw_usb/HID.c'
-' '
 'Building file: ../src/lw_usb/MAX3421E.c'
 'Invoking: MicroBlaze gcc compiler'
 mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/lw_usb/MAX3421E.o" -IC:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vitis/top_level/export/top_level/sw/top_level/standalone_microblaze_0/bspinclude/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v11.0 -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/lw_usb/MAX3421E.d" -MT"src/lw_usb/MAX3421E.o" -o "src/lw_usb/MAX3421E.o" "../src/lw_usb/MAX3421E.c"
@@ -83,5 +74,5 @@ mb-size proessor_software.elf  |tee "proessor_software.elf.size"
 'Finished building: proessor_software.elf.size'
 ' '
 
-23:17:53 Build Finished (took 5s.559ms)
+00:18:32 Build Finished (took 6s.344ms)
 

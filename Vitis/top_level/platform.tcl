@@ -22,3 +22,6 @@ platform generate
 platform config -updatehw {C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/top_level.xsa}
 platform config -updatehw {C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/top_level.xsa}
 platform generate -domains 
+platform active {top_level}
+platform config -updatehw {C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/top_level.xsa}
+platform generate -domains 

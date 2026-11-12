@@ -119,13 +119,20 @@ module top_level(
         .TMDS_DATA_N(hdmi_tmds_data_n)          
     );
     
-    //Color Mapper Module   
-    color_mapper color_instance(
-        .DrawX(drawX),
-        .DrawY(drawY),
-        .Red(red),
-        .Green(green),
-        .Blue(blue)
+    logic [16:0] addr;
+    logic [11:0] pix;
+
+    assign addr = drawY[9:1] * 320 + drawX[9:1];
+    
+    assign red   = pix[11:8];
+    assign green = pix[7:4];
+    assign blue  = pix[3:0];
+    
+    //Image Rom Module
+    image_rom image_rom_instance(
+        .clk(Clk),
+        .addr(addr),
+        .data(pix)
     );
     
 endmodule
