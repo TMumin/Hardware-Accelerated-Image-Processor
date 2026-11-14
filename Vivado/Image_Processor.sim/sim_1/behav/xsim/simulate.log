@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+black: y=0 (expect 0)
+red: y=4 (expect 4)
+green: y=8 (expect 8)
+blue: y=1 (expect 1)
+white: y=15 (expect 15)
+$finish called at time : 500 ns : File "C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sim_1/new/tb_grayscale.sv" Line 46

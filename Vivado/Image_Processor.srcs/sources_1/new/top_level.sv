@@ -49,10 +49,19 @@ module top_level(
     logic [9:0] drawX, drawY;
 
     logic hsync, vsync, vde;
-    logic [3:0] red, green, blue;
+    logic [3:0] red_raw, green_raw, blue_raw;
     logic reset_ah;
     
+    logic hsync_d, vsync_d, vde_d;
+    logic [3:0] red_filtered, green_filtered, blue_filtered;
+    
     assign reset_ah = reset_rtl_0;
+    
+    always_ff @ (posedge clk_25MHz) begin
+        hsync_d <= hsync;
+        vsync_d <= vsync;
+        vde_d <= vde;
+    end
     
     mb_block mb_block_i (
         .clk_100MHz(Clk),
@@ -99,12 +108,12 @@ module top_level(
         .rst(reset_ah),
         
         //Color and Sync Signals
-        .red(red),
-        .green(green),
-        .blue(blue),
-        .hsync(hsync),
-        .vsync(vsync),
-        .vde(vde),
+        .red(red_filtered),
+        .green(green_filtered),
+        .blue(blue_filtered),
+        .hsync(hsync_d),
+        .vsync(vsync_d),
+        .vde(vde_d),
         
         //aux Data (unused)
         .aux0_din(4'b0),
@@ -124,15 +133,47 @@ module top_level(
 
     assign addr = drawY[9:1] * 320 + drawX[9:1];
     
-    assign red   = pix[11:8];
-    assign green = pix[7:4];
-    assign blue  = pix[3:0];
+    assign red_raw = pix[11:8];
+    assign green_raw = pix[7:4];
+    assign blue_raw = pix[3:0];
     
     //Image Rom Module
-    image_rom image_rom_instance(
-        .clk(Clk),
+    image_rom image_rom_i(
+        .clk(clk_25MHz),
         .addr(addr),
         .data(pix)
     );
+    
+    logic [3:0] gray;
+    
+    //Grayscale Module
+    grayscale grayscale_i(
+        .r(red_raw),
+        .g(green_raw),
+        .b(blue_raw),
+        .z(gray)
+    );
+    
+    //Filter selection MUX
+    logic [7:0] keycode, keycode_meta, keycode_last;
+    
+    always_comb begin
+        unique case (keycode_last)
+            8'h14: {red_filtered, green_filtered, blue_filtered} = {red_raw, green_raw, blue_raw};
+            8'h1a: {red_filtered, green_filtered, blue_filtered} = {gray, gray, gray};
+            default: {red_filtered, green_filtered, blue_filtered} = {red_raw, green_raw, blue_raw};
+        endcase
+    end
+    
+    always_ff @(posedge clk_25MHz) begin
+        keycode_meta <= keycode0_gpio[7:0];
+        keycode <= keycode_meta;
+    
+        if (reset_ah)
+            keycode_last <= 8'h14;
+        else if (keycode == 8'h14 || keycode == 8'h1a)
+            keycode_last <= keycode;
+    end
+    
     
 endmodule

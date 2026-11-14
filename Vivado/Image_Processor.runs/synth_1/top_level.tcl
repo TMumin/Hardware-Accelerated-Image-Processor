@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -92,6 +91,7 @@ OPTRACE "Adding files" START { }
 read_mem C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sources_1/imports/Images/image.mem
 read_verilog -library xil_defaultlib -sv {
   C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sources_1/imports/design_source/VGA_controller.sv
+  C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sources_1/new/grayscale.sv
   C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sources_1/new/image_rom.sv
   C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sources_1/new/top_level.sv
 }
