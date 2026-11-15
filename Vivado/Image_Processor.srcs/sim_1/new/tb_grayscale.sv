@@ -30,19 +30,19 @@ module tb_grayscale();
     initial begin
         {r,g,b} = 12'h000; 
         #10; 
-        $display("black: y=%0d (expect 0)", z);
+        $display("black: z=%0d (expect 0)", z);
         {r,g,b} = 12'hF00; 
         #10; 
-        $display("red: y=%0d (expect 4)", z);
+        $display("red: z=%0d (expect 4)", z);
         {r,g,b} = 12'h0F0; 
         #10; 
-        $display("green: y=%0d (expect 8)", z);
+        $display("green: z=%0d (expect 8)", z);
         {r,g,b} = 12'h00F; 
         #10; 
-        $display("blue: y=%0d (expect 1)", z);
+        $display("blue: z=%0d (expect 1)", z);
         {r,g,b} = 12'hFFF; 
         #10; 
-        $display("white: y=%0d (expect 15)", z);
+        $display("white: z=%0d (expect 15)", z);
         $finish;
     end
     
