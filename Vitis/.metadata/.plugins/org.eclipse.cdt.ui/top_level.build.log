@@ -1,5 +1,5 @@
-23:50:34 **** Build of project top_level ****
-buildplatform.bat 61766 top_level  
+20:42:53 **** Build of project top_level ****
+buildplatform.bat 57634 top_level  
 XSDB Server Channel: tcfchan#1
 C:/Xilinx/Vitis/2022.2/gnu/microblaze/nt
 Building the BSP Library for domain  - standalone_microblaze_0 on processor microblaze_0
@@ -145,5 +145,5 @@ mb-ar: creating microblaze_0/lib/libxil.a
 'Finished building libraries'
 
 
-23:50:49 Build Finished (took 14s.859ms)
+20:43:10 Build Finished (took 16s.678ms)
 

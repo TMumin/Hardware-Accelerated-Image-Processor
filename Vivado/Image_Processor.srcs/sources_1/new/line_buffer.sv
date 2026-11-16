@@ -22,17 +22,18 @@
 
 module line_buffer(
         input logic clk, we,
-        input logic [8:0] addr,
+        input logic [9:0] waddr, raddr,
         input logic [3:0] din,
         output logic [3:0] dout
     );
     
-    logic [3:0] mem [320];
+    logic [3:0] mem [640];
     
     always_ff @(posedge clk) begin
-        if (we)
-            mem[addr] <= din;
-        dout <= mem[addr];
+        if (we) begin
+            mem[waddr] <= din;
+            dout <= mem[raddr];
+        end
     end
     
 endmodule

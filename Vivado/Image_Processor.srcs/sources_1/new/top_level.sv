@@ -161,6 +161,10 @@ module top_level(
         unique case (keycode_last)
             8'h14: {red_filtered, green_filtered, blue_filtered} = {red_raw, green_raw, blue_raw};
             8'h1a: {red_filtered, green_filtered, blue_filtered} = {gray, gray, gray};
+            8'h08: {red_filtered, green_filtered, blue_filtered} = {~red_raw, ~green_raw, ~blue_raw};
+            8'h15: {red_filtered, green_filtered, blue_filtered} = {red_raw, 4'h0, 4'h0};
+            8'h17: {red_filtered, green_filtered, blue_filtered} = {4'h0, green_raw, 4'h0};
+            8'h1c: {red_filtered, green_filtered, blue_filtered} = {4'h0, 4'h0, blue_raw};
             default: {red_filtered, green_filtered, blue_filtered} = {red_raw, green_raw, blue_raw};
         endcase
     end
@@ -171,7 +175,8 @@ module top_level(
     
         if (reset_ah)
             keycode_last <= 8'h14;
-        else if (keycode == 8'h14 || keycode == 8'h1a)
+        else if (keycode == 8'h14 || keycode == 8'h1a || keycode == 8'h08 || 
+                keycode == 8'h15 || keycode == 8'h17 || keycode == 8'h1c)
             keycode_last <= keycode;
     end
     
