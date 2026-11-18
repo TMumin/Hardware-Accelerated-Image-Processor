@@ -1,3 +1,6 @@
 Time resolution is 1 ps
-PASS: all windows match
-$finish called at time : 324260 ns : File "C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sim_1/new/tb_window_generator.sv" Line 78
+flat 12: weight=15 (expect 15)
+flat 4: weight=12 (expect 12)
+bright bottom-right: weight=15 (expect 15)
+bright top-left: weight=0 (expect 0)
+$finish called at time : 400 ns : File "C:/Users/taise/Desktop/Homework/SEM_3/ECE_385/Image_Processor/Vivado/Image_Processor.srcs/sim_1/new/tb_emboss.sv" Line 44

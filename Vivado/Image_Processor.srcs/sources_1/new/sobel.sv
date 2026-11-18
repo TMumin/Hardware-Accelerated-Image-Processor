@@ -33,6 +33,6 @@ module sobel(
     assign Ax = Gx[7] ? -Gx : Gx;
     assign Ay = Gy[7] ? -Gy : Gy;
     assign mag = Ax + Ay;
-    assign edge_out = (mag > 8'd24);
+    assign edge_out = (mag > 8'd15);
     
 endmodule

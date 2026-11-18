@@ -1,8 +1,7 @@
 # compile verilog/system verilog design source files
 sv xil_defaultlib  --include "../../../../Image_Processor.gen/sources_1/bd/mb_block/ipshared/ec67/hdl" --include "../../../../Image_Processor.gen/sources_1/bd/mb_block/ipshared/7698" --include "../../../../Image_Processor.gen/sources_1/ip/clk_wiz_0" \
-"../../../../Image_Processor.srcs/sources_1/new/line_buffer.sv" \
-"../../../../Image_Processor.srcs/sources_1/new/window_generator.sv" \
-"../../../../Image_Processor.srcs/sim_1/new/tb_window_generator.sv" \
+"../../../../Image_Processor.srcs/sources_1/new/emboss.sv" \
+"../../../../Image_Processor.srcs/sim_1/new/tb_emboss.sv" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
